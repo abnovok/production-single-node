@@ -25,7 +25,7 @@ ADD ./php.ini /etc/php5/cli/conf.d/90-php.ini
 
 # MSMTP
 ADD msmtprc /etc/msmtprc
-RUN chmod 0600 /etc/msmtprc && \
+#RUN chmod 0600 /etc/msmtprc && \
     chown www-data:www-data /etc/msmtprc && \
     mkdir -p /var/log/msmtp/msmtp.log && \
     touch /var/log/msmtp/msmtp.log && \
