@@ -33,11 +33,11 @@ RUN chmod 0600 /etc/msmtprc && \
     chown www-data:www-data /var/log/msmtp/msmtp.log
 
 # CRON
-RUN set -ex \
-    && mkfifo --mode 0666 /var/log/cron.log \
-    && sed --regexp-extended --in-place \
-    's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' \
-    /etc/pam.d/cron
+#RUN set -ex \
+#    && mkfifo --mode 0666 /var/log/cron.log \
+#    && sed --regexp-extended --in-place \
+#    's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' \
+#    /etc/pam.d/cron
 ADD default.cron /etc/cron.d/default
 RUN chmod 0644 /etc/cron.d/default
 RUN touch /var/log/cron.log
